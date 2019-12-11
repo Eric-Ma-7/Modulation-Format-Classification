@@ -1,7 +1,7 @@
 # Modulation-Format-Classification
 This project is the final project of communication principles course.
 
-### Aim
+## Aim
 
 Our aim is to achieve the **digital modulation format classification under addictive white Gaussian noise (AWGN) channel**
 
@@ -9,13 +9,13 @@ Our aim is to achieve the **digital modulation format classification under addic
 + **MATLAB code**
 + run the simulation at least 100 times and calculate the **accuracy** and **signal noise ratio (SNR)**
 
-### Developing Environment
+## Developing Environment
 
 MATLAB R2019a (recommended)
 
 *NOT* earlier than MATLAB R2016a
 
-### Notice
+## Notice
 
 + All variables and functions should have **specific** and **clear** names.
 + Adding proper comments to improve the readability is recommended.
