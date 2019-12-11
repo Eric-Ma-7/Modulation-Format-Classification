@@ -21,3 +21,7 @@ MATLAB R2019a (recommended)
 + Adding proper comments to improve the readability is recommended.
 + Using **camel case** to name variables is recommended. *(e.g. myVariableName)*
 + Using **underline case** to name functions is recommended. *(e.g. my_function_name)*
+
+## License
+
+This project is licensed under a [MIT license](https://github.com/Eric-Ma-7/Modulation-Format-Classification/blob/master/LICENSE)
