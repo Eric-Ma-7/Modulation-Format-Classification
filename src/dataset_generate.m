@@ -1,7 +1,9 @@
 clear
 dataset = [];
-for bitPerSymbol = 1:5
-    for snr = [10:2:20, 25:5:40]
+bitPerSymbolList = 1:5;
+snrList = [10:2:20, 25:5:40];
+for bitPerSymbol = bitPerSymbolList
+    for snr = snrList
         signal = signal_generation(bitPerSymbol,snr,'psk');
         tmp.signal = signal;
         tmp.format = 'psk';
@@ -10,8 +12,8 @@ for bitPerSymbol = 1:5
         dataset = [dataset tmp];
     end
 end
-for bitPerSymbol = 1:5
-    for snr = [10:2:20, 25:5:40]
+for bitPerSymbol = bitPerSymbolList
+    for snr = snrList
         signal = signal_generation(bitPerSymbol,snr,'qam');
         tmp.signal = signal;
         tmp.format = 'qam';
