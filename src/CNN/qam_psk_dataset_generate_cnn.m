@@ -20,6 +20,9 @@ for bitPerSymbol = bitPerSymbolList
     end
 end
 for bitPerSymbol = bitPerSymbolList
+    if (bitPerSymbol == 2)||(bitPerSymbol == 5)
+        continue;
+    end
     for snr = snrList
         for i = 1:N
             signal = signal_generation(bitPerSymbol,snr,'psk');
