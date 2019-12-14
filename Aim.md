@@ -36,7 +36,7 @@ Using **high order moment** and **SVM** to identify different digital modulation
 
 ## Notice
 
-+ The [signal generating function](https://github.com/Eric-Ma-7/Modulation-Format-Classification/blob/master/src/signal_generation.m) has been wriiten and it can generate PSK and QAM signal with any number of bit per symbol.
++ The [signal generating function](https://github.com/Eric-Ma-7/Modulation-Format-Classification/blob/master/src/signal_generation.m) has been written and it can generate PSK and QAM signal with any number of bit per symbol.
 + The [dataset generating script](https://github.com/Eric-Ma-7/Modulation-Format-Classification/blob/master/src/dataset_generate.m) gives an exmaple to generate a dataset. You can modify this script to generate the dataset you want, but DO NOT submit it onto git unless it is necessary.
 
 ## Reference
