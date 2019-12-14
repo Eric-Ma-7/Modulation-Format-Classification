@@ -1,9 +1,10 @@
 # Modulation-Format-Classification
+
 This project is the final project of communication principles course.
 
-## Aim
+## Requirements
 
-Our aim is to achieve the **digital modulation format classification under addictive white Gaussian noise (AWGN) channel**
+The requirement is to achieve the **digital modulation format classification under addictive white Gaussian noise (AWGN) channel**
 
 + plot the **block diagram**
 + **MATLAB code**
