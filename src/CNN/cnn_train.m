@@ -1,6 +1,6 @@
 clear
 %% image data preprocessing
-imdsFolder = [pwd '\dataset_qam_psk'];
+imdsFolder = [pwd '\dataset_cnn_train'];
 
 imds = imageDatastore(imdsFolder,'IncludeSubfolders',true,'LabelSource','foldernames');
 numTrainFiles = 1100;
