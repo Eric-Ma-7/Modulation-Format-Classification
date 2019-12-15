@@ -6,10 +6,10 @@ This document is to elaborate what we shoud do in the project.
 
 Our algorithm is expected to identify the following modulation format as much as possible.
 
-| Bit Per Symbol |   1   |   2   |   3   |   4   |   5   |  ...  |
-| :------------: | :---: | :---: | :---: | :---: | :---: | :---: |
-|      QAM       |  --   | QPSK  | 8QAM  | 16QAM | 32QAM |  ...  |
-|      PSK       | 2PSK  | 4PSK  | 8PSK  | 16PSK | 32PSK |  ...  |
+| Bit Per Symbol |  1   |  2   |  3   |   4   |   5   | ...  |
+| :------------: | :--: | :--: | :--: | :---: | :---: | :--: |
+|      QAM       |  --  | QPSK | 8QAM | 16QAM | 32QAM | ...  |
+|      PSK       | 2PSK | QPSK | 8PSK | 16PSK | 32PSK | ...  |
 
 ## Characterization of Signals
 
