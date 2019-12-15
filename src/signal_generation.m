@@ -16,11 +16,7 @@ end
 M = 2^bitPerSymbol;
 dataSymbol = randi([0,M-1],1,dataNum);
 if strcmp(format,'psk')||strcmp(format,'PSK')
-    if bitPerSymbol == 2
-        TxSignal = qammod(dataSymbol,4,'gray');
-    else
-        TxSignal = pskmod(dataSymbol,M,0);
-    end
+	TxSignal = pskmod(dataSymbol,M,0);
 elseif strcmp(format,'qam')||strcmp(format,'QAM')
     if bitPerSymbol == 3
         constel = [1+1i, -1+1i, -1-1i, 1-1i, 1+sqrt(3), (1+sqrt(3))*1i, -1-sqrt(3), -(1+sqrt(3))*1i];
