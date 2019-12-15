@@ -33,7 +33,7 @@ for i = 1:7
 end
 
 %% Preparing dataset
-imageDataFolder = 'dataset_qam_psk_validation';
+imageDataFolder = 'dataset_cnn_train';
 if exist(imageDataFolder,'dir')
     rmdir(imageDataFolder,'s');
 end
