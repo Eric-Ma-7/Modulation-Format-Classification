@@ -10,19 +10,25 @@ numTrainFiles = 1100;
 myLayers = [
     imageInputLayer([454 454 1])
     
-    convolution2dLayer(5,8,'Padding','same')
+    convolution2dLayer(3,8,'Padding','same')
     batchNormalizationLayer
     reluLayer
     
     maxPooling2dLayer(2,'Stride',2)
     
-    convolution2dLayer(5,16,'Padding','same')
+    convolution2dLayer(3,16,'Padding','same')
     batchNormalizationLayer
     reluLayer
     
     maxPooling2dLayer(2,'Stride',2)
     
-    convolution2dLayer(5,32,'Padding','same')
+    convolution2dLayer(3,32,'Padding','same')
+    batchNormalizationLayer
+    reluLayer
+    
+    maxPooling2dLayer(2,'Stride',2)
+    
+    convolution2dLayer(3,64,'Padding','same')
     batchNormalizationLayer
     reluLayer
     
