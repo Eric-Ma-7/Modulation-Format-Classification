@@ -1,3 +1,4 @@
 *.asv
 src/CNN/dataset*
 src/CNN/__trash
+src/CNN/mytest.m
