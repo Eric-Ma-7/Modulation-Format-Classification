@@ -16,7 +16,7 @@ Our algorithm is expected to identify the following modulation format as much as
 We need use some parameters to preprocess the origin signals to adapt the machine learning algorithms. Those parameters should are able to describe some typical characters of the signal. The common-used parameters are shown in the following:
 
 + **constellation diagram**
-+ **high order moment**
++ **high-order moment** / **high-order cumulant**
 + other parameters defined by ourselves (e.g. angle distribution, amplitude distribution ...)
 
 Classification by high order moment is an easy method and also can obtain a high accuracy.
