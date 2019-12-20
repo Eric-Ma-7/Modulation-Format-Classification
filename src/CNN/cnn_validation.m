@@ -8,14 +8,14 @@ modFormats = [struct('name','2PSK','bitPerSymbol',1,'class','PSK')
     struct('name','16QAM','bitPerSymbol',4,'class','QAM')
     struct('name','32QAM','bitPerSymbol',5,'class','QAM')];
 
-snr = 5;
+snr = 1;
 N = 10000;
 validation = cell(N,1);
 prediction = [];
 
 hwait = waitbar(0,'Validating 0%');
 for i = 1:N
-    mod = modFormats(randi(7));
+    mod = modFormats(3+randi(4));
     signal = signal_generation(mod.bitPerSymbol,snr,mod.class);
     img = signal2image(signal);
     prediction = [prediction;classify(net,img)];
@@ -33,4 +33,5 @@ for i = 1:length(prediction)
     hy = find(formatList==prediction(i));
     heat(hx,hy) = heat(hx,hy) + 1;
 end
+figure
 heatmap(formatList, formatList, heat);
