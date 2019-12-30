@@ -40,6 +40,15 @@ For example, when training a model for '2PSK', all the rest signals will be set 
 
 All the models will be saved to the current directory.
 
+##SNR Estimation
+
+Use the `kmeans` function in MATLAB for clustering, and then get the sum of the squared distances of all points to the cluster center. Different formats of signal has different appearance:
+
+![pic4](pic/SNR_model.png)
+
+Use fitted curves to estimate SNR.
+
+
 ##  Validation
 
 ` validation.m` use 100 sets of signals with random format and random snr rate to calculate the correct rate.
