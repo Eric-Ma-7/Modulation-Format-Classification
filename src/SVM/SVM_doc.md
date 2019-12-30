@@ -44,7 +44,7 @@ All the models will be saved to the current directory.
 
 Use the `kmeans` function in MATLAB for clustering, and then get the sum of the squared distances of all points to the cluster center. Different formats of signal has different appearance:
 
-![pic4](pic/SNR_model.png)
+![pic4](pic/SNR_Model.png)
 
 Use fitted curves to estimate SNR.
 
