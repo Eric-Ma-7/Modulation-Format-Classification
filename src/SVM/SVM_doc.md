@@ -40,7 +40,7 @@ For example, when training a model for '2PSK', all the rest signals will be set 
 
 All the models will be saved to the current directory.
 
-##SNR Estimation
+## SNR Estimation
 
 Use the `kmeans` function in MATLAB for clustering, and then get the sum of the squared distances of all points to the cluster center. Different formats of signal has different appearance:
 
