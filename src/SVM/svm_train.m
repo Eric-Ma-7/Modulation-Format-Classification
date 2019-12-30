@@ -1,6 +1,7 @@
+function quantity = svm_train(snr)
 % This program is only used to train SVM Models for 2PSK,8QAM and 32QAM
 quantity = 200;
-trainingData = dataset_generate('random',10,quantity);% 200sets of data for training,snr=10
+trainingData = dataset_generatation('random',snr,quantity);% 200sets of data for training,snr=10
 trainLabel = cell(quantity,1);
 [trainLabel{:,1} ] = trainingData.format; % get label
 
@@ -16,8 +17,18 @@ for j=1:m
         label(j) = {'others'};
     end
 end
-SVMModel_2PSK = fitcsvm(data,label,'KernelFunction','linear');
+SVMModel_2PSK = fitcsvm(data,label,'KernelFunction','polynomial');
 save SVMModel_2PSK SVMModel_2PSK
+%% 8PSK
+for j=1:m
+    if strcmp(trainingData(j).format,'8PSK')
+        label(j) = {'8PSK'};
+    else
+        label(j) = {'others'};
+    end
+end
+SVMModel_8PSK = fitcsvm(data,label,'KernelFunction','polynomial');
+save SVMModel_8PSK SVMModel_8PSK
 %% 8QAM
 for j=1:m
     if strcmp(trainingData(j).format,'8QAM')
@@ -36,5 +47,26 @@ for j=1:m
         label(j) = {'others'};
     end
 end
-SVMModel_32QAM = fitcsvm(data,label,'KernelFunction','linear');
+SVMModel_32QAM = fitcsvm(data,label,'KernelFunction','polynomial');
 save SVMModel_32QAM SVMModel_32QAM
+%% QPSK
+for j=1:m
+    if strcmp(trainingData(j).format,'QPSK')
+        label(j) = {'QPSK'};
+    else
+        label(j) = {'others'};
+    end
+end
+SVMModel_QPSK = fitcsvm(data,label,'KernelFunction','polynomial');
+save SVMModel_QPSK SVMModel_QPSK
+%% 16QAM
+for j=1:m
+    if strcmp(trainingData(j).format,'16QAM')
+        label(j) = {'16QAM'};
+    else
+        label(j) = {'others'};
+    end
+end
+SVMModel_16QAM = fitcsvm(data,label,'KernelFunction','polynomial');
+save SVMModel_16QAM SVMModel_16QAM
+end

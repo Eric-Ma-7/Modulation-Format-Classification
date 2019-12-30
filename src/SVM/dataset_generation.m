@@ -9,81 +9,81 @@ dataset=[];
 for j = 1:quantity
     if strcmp(format,'2PSK')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(1,snr_signle,'qam');
+        signal = signal_generation(1,snrSingle,'qam');
         tmp.signal = signal;
         tmp.format = '2PSK';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     elseif strcmp(format,'8PSK')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(3,snr_signle,'psk');
+        signal = signal_generation(3,snrSingle,'psk');
         tmp.signal = signal;
         tmp.format = '8PSK';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     elseif strcmp(format,'QPSK')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(2,snr_signle,'qam');
+        signal = signal_generation(2,snrSingle,'qam');
         tmp.signal = signal;
         tmp.format = 'QPSK';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     elseif strcmp(format,'8QAM')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(3,snr_signle,'qam');
+        signal = signal_generation(3,snrSingle,'qam');
         tmp.signal = signal;
         tmp.format = '8QAM';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     elseif strcmp(format,'16QAM')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(4,snr_signle,'qam');
+        signal = signal_generation(4,snrSingle,'qam');
         tmp.signal = signal;
         tmp.format = '16QAM';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     elseif strcmp(format,'32QAM')
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
-        signal = signal_generation(5,snr_signle,'qam');
+        signal = signal_generation(5,snrSingle,'qam');
         tmp.signal = signal;
         tmp.format = '32QAM';
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp]; 
     else % Ëæ»úÀàÐÍ
         if strcmp(snr,'random')
-            snr_signle = 50*rand();
+            snrSingle = 50*rand();
         else
-            snr_signle = snr;   
+            snrSingle = snr;   
         end
         bitPerSymbol=round(5*rand())+1;
         if bitPerSymbol==6
-            signal=signal_generation(3,snr_signle,'psk');
+            signal=signal_generation(3,snrSingle,'psk');
         else
-            signal = signal_generation(bitPerSymbol,snr_signle,'qam');
+            signal = signal_generation(bitPerSymbol,snrSingle,'qam');
         end
         tmp.signal = signal;
         switch bitPerSymbol
@@ -100,7 +100,7 @@ for j = 1:quantity
             case 6
                 tmp.format = '8PSK';
         end
-        tmp.snr = snr_signle;
+        tmp.snr = snrSingle;
         dataset = [dataset tmp];
     end
 end

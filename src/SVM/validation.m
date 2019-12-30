@@ -1,59 +1,66 @@
-clear
-% load SVMModel
-load SVMModel_2PSK.mat
-load SVMModel_8QAM.mat
-load SVMModel_32QAM.mat
+tic
+correctRate=1:20;
+correctSNRRate=1:20;
+for snr=1:20
+n=10;
+svm_train(n);
+dataset = dataset_generatation('random',snr,100);
 
-quantity = 100;
-testData = dataset_generate('random','random',quantity);% generate test data
-trainLabel = cell(quantity,1);
-[trainLabel{:,1} ] = testData.format;   % get the label of data
-data = satatisticaldata_genarate(testData);% get satatistical data
+for j=1:11
+    re = identification(dataset);
+    tmp = cell2mat(re(:,2));
+    if mean(tmp) > 11
+        break;
+    end
+    if isnan(mean(tmp))
+        n=n-1;
+        svm_train(n); 
+        continue
+    end
+    if std(tmp)>=1
+        n = n-1;
+        svm_train(n); 
+        continue
+    end
+    if round(mean(tmp)) == n
+        break;
+    end
+    n = round(mean(tmp));
+    svm_train(n);   
+end
 
-[m,n] =  size(data);
-%% 2PSK
-result_2PSK = predict(SVMModel_2PSK,data);
-result = cell(m,1);
-for j=1:m
-    if isequal(result_2PSK(j),trainLabel(j))
-        result(j)={'2PSK'};
+for jj=1:100
+    if isequal(re(jj,1),{[]})
+        re(jj,1)={'16QAM'};  % ²ÂÒ»¸ö°É
+    end
+    if isequal(re(jj,2),{[]})
+        re(jj,2)= {0};
+    end
+    if isnan(cell2mat(re(jj,2)))
+        re(jj,2)= {0};
     end
 end
-%% 8QAM
-result_8QAM = predict(SVMModel_8QAM,data);
-for j=1:m
-    if isequal(result_8QAM(j),trainLabel(j))
-        result(j)={'8QAM'};
+
+correctFormatNum = 0;
+correctSNRNum=0;
+for jj=1:100
+    if isequal(cell2mat(re(jj,1)),dataset(jj).format)
+        correctFormatNum = correctFormatNum+1;
+    end
+    if cell2mat(re(jj,2))>=dataset(jj).snr-1.5 && cell2mat(re(jj,2))<=dataset(jj).snr+1.5
+        correctSNRNum = correctSNRNum+1;
+    elseif cell2mat(re(jj,2))>=10 && dataset(jj).snr>=10
+        correctSNRNum = correctSNRNum+1;
     end
 end
-%% 32QAM
-result_32QAM = predict(SVMModel_32QAM,data);
-for j=1:m
-    if isequal(result_32QAM(j),trainLabel(j))
-        result(j)={'32QAM'};   
-    end
+
+correctFormatRate(snr) = correctFormatNum;
+correctSNRRate(snr) = correctSNRNum;
 end
-%% 16QAM & QPSK & 8SPK. DO NOT use SVMModel to classify
-for j=1:m
-    if isequal(result(j),{[]})
-        C20 = M(testData(j).signal,2,0);
-        C40 = M(testData(j).signal,4,0)-3*C20^2;
-        if (abs(C40)<0.1)
-            result(j)={'8PSK'};
-        elseif data.T4(j) < 0.788
-            result(j)={'16QAM'};
-        else
-            result(j)={'QPSK'};
-        end
-    end
-end
-%% calculate accuracy
-rightNum = 0;
-sum = 0;
-for j=1:m
-    if isequal(result(j),trainLabel(j))
-        rightNum = rightNum+1;
-    end
-    sum = sum+1;
-end
-disp(rightNum/sum*100)
+plot(1:20,correctFormatRate,'s-')
+hold on;
+plot(1:20,correctSNRRate,'s-')
+legend('Format Accurancy','SNR Accurancy','location','southeast')
+xlabel('SNR/dB')
+ylabel('Accurancy/%')
+toc

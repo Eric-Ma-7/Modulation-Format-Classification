@@ -26,4 +26,5 @@ elseif strcmp(format,'qam')||strcmp(format,'QAM')
     end
 end
 RxSignal = awgn(TxSignal,snr,'measured');
+RxSignal = RxSignal/sqrt(mean(abs(RxSignal).^2));
 end

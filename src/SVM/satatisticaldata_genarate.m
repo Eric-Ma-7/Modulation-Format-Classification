@@ -9,13 +9,14 @@ for j=1:length(dataset)
     M40 = M(dataset(j).signal,4,0);
     M42 = M(dataset(j).signal,4,2);
     M60 = M(dataset(j).signal,6,0);
-
+    %t.format=dataset.format;
     C21 = M21;
     C40 = M40 - 3 * M30^2;
 %   C41 = M41 - 2 * M20 * M21;
     C42 = M42 - abs(M20)^2 - 2 * M21^2;
     C60 = M60 - 15 * M40 * M20 + 30 * M30^3;
-    
+    %C63 = M(dataset(j).signal,6,3)-9*M(dataset(j).signal,4,1)*M(dataset(j).signal,2,1)-6*M(dataset(j).signal,2,1)^3;
+    %t.ansC63 = abs(C63);
     t.T1 = abs(C40) / abs(C42);
 %   t.T2 = abs(C41) / abs(C42);
 %   t.T3 = abs(C60)^2 / abs(C40)^3;
